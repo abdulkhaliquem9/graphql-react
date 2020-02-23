@@ -4,14 +4,19 @@ import { connect } from 'react-redux'
 import FeatureCard from './../FeatureCard'
 
 function Features(props) {
-    let { Features = {} , SelectedFeatures = [] } = props
+    let { Features , SelectedFeatures } = props
     let selection = {}
-
-    console.log('Features props ------',selection, '_+_+_+++', props, '...')
+    Object.keys(Features).forEach( feature => {
+        if(SelectedFeatures.indexOf(feature) >=0){
+            selection[feature] = Features[feature]
+        }
+    } ) 
     return (
             <Grid container spacing={1}>
                 {
-                  SelectedFeatures.map( (feature,i) => <FeatureCard key={i} title={SelectedFeatures} value={"0.0"}/>)
+                    selection && Object.keys(selection).map((feature, i) => <Grid key={i} item xs={6} sm={3}>
+                        <FeatureCard  title={selection[feature].metric} value={selection[feature].value} />
+                    </Grid>)
                 }
             </Grid>
     )

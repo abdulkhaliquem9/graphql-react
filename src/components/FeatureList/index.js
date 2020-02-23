@@ -26,7 +26,7 @@ const GetFeatures = `
 
  function FeatureList(props) {
      const {FeatureList, setFeatureList, onSelectFeature} = props
-     console.log('Featurelist..', props)
+    //  console.log('Featurelist..', props)
     const  onChange =  (event, value) => {
         // console.log('onFeatureSelect', value)
         onSelectFeature(value)
@@ -37,7 +37,7 @@ const GetFeatures = `
       variables:{}
   })
   const { fetching, data, error } = result;
-  console.log('feature list query', result)
+//   console.log('feature list query', result)
 
   useEffect(()=>{
     setFeatureList(data)
