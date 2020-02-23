@@ -1,9 +1,14 @@
 import React from 'react';
+import Features from './components/Features'
+import FeatureList from './components/FeatureList'
 
 
 const App = () => (
   <div>
-    <h1>clean repo.</h1>
+    <div style={{ display: 'flex' }}>
+      <Features />
+      <FeatureList />
+    </div>
   </div>
 );
 
